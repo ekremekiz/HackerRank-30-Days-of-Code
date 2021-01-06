@@ -12,10 +12,13 @@ class Solution:
     def insert(self,head,data):
     #Complete this method
         new_node = Node(data)
-        new_node.next = head
-        head.next = new_node
-        
-        return new_node
+        if not head:
+            return new_node
+        current = head
+        while current.next:
+            current = current.next
+        current.next = new_node
+        return head
         
 mylist= Solution()
 T=int(input())
@@ -23,4 +26,4 @@ head=None
 for i in range(T):
     data=int(input())
     head=mylist.insert(head,data)    
-mylist.display(head);
+mylist.display(head); 
