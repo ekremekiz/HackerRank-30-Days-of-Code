@@ -1,3 +1,5 @@
+import sys
+
 class Node:
     def __init__(self,data):
         self.right=self.left=None
@@ -15,29 +17,21 @@ class Solution:
                 root.right=cur
         return root
 
-    def getHeight(self,root):
+    def levelOrder(self,root):
         #Write your code here
-        if root == None:
-            return -1
-
-        elif root.left == None and root.right==None:
-            return 0
-
-        else:
-            leftHeight = self.getHeight(root.left)
-            rightHeight = self.getHeight(root.right)
-        
-            if leftHeight > rightHeight:
-                return leftHeight + 1
-
-            else:
-                return rightHeight + 1
+        node_values_in_the_tree = ""
+        level = 0
+        for i in range(1,21,1):
+            if root.left != None:
+                
+                
+        print((len(root)))
             
+
 T=int(input())
 myTree=Solution()
 root=None
 for i in range(T):
     data=int(input())
     root=myTree.insert(root,data)
-height=myTree.getHeight(root)
-print(height)       
+myTree.levelOrder(root)
