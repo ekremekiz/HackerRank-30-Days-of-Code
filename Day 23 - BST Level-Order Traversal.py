@@ -19,13 +19,18 @@ class Solution:
 
     def levelOrder(self,root):
         #Write your code here
+        node_list_in_the_tree = list()
         node_values_in_the_tree = ""
-        level = 0
-        for i in range(1,21,1):
-            if root.left != None:
-                
-                
-        print((len(root)))
+        node_list_in_the_tree.append(root)
+        while len(node_list_in_the_tree) > 0:
+            node = node_list_in_the_tree.pop(0)
+            if node.left != None:
+                node_list_in_the_tree.append(node.left)
+            if node.right != None:
+                node_list_in_the_tree.append(node.right)
+            node_values_in_the_tree += str(node.data) + " "
+        print(node_values_in_the_tree)
+                    
             
 
 T=int(input())
